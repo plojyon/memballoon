@@ -7,16 +7,17 @@ int random_(int max) {
 }
 
 int main(int argc, char** argv) {
-	int MB = 1000 * 1000;
-	int size = atoi(argv[1]) * MB;
-	printf("Inflating %d MB ...\n", size / MB);
+	long long MiB = 1024 * 1024;
+	long long GiB = 1024 * MiB;
+	long long size = atoi(argv[1]) * MiB;
+	printf("Inflating %.2f GiB = %.1f MiB = %lld B ...\n", (float)size / GiB, (float)size / MiB, size);
 
 	void* ptr = malloc(size);
-	for (int i = 0; i < size; i++) {
+	for (long long i = 0; i < size; i++) {
 		((char*)ptr)[i] = (char)random_(256);
 	}
 	
-	printf("Inflated %d MB.\n", size / MB);
+	printf("Inflated.\n");
 	while (1) {
 		sleep(120); // seconds
 	}

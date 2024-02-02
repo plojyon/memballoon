@@ -4,7 +4,7 @@ import sys
 # TODO: configure custom behaviour here
 def alarm():
     """Perform action when balloon is popped."""
-    print("stinky")
+    print("OOM! stinky")
     subprocess.run("./alarm", shell=True)
 
 
@@ -12,7 +12,7 @@ def alarm():
 try:
     size = sys.argv[1]
 except IndexError as err:
-    print("Usage: python watchdog.py [size in MB]")
+    print("Usage: python watchdog.py [size in MiB]")
     exit(0)
 
 
@@ -26,7 +26,7 @@ try:
     returncode = proc.wait()
 except KeyboardInterrupt as err:
     proc.kill()
-    print("Popped.")
+    print("Safely deflated by keyboard interrupt.")
 
 if returncode != 0:
     alarm()

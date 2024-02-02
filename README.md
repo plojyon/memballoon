@@ -11,7 +11,7 @@ $ gcc balloon.c -o balloon
 ```sh
 $ python watchdog.py 300
 ```
-The number `300` indicates the size of the balloon in megabytes.
+The number `300` indicates the size of the balloon in mebibytes.
 
 Add an executable file `alarm` (script or otherwise) or configure a custom response in `watchdog.py`.
 
